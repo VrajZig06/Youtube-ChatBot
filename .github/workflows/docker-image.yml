@@ -10,7 +10,7 @@ jobs:
         - name : checkout
           uses : actions/checkout@v4
         - name : build image
-          run  : docker build -t vrajzigu/projects:latest .
+          run  : docker build -t vrajzigu/ytchatbot:latest .
         - name : push image to docker hub
           run  : |
             docker login -u vrajzigu -p ${{secrets.DOCKER_HUB_TOKEN}}
