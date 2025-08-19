@@ -39,8 +39,6 @@ async def getAIResponse(data:APIInput):
         
         vector_store.add_texts(chunk_list)
 
-        print(vector_store._client.get_collection("Transcript-cp0_xWxLGaI"))
-
         # Creating Contextual Compressor Retriever 
         base_retriever = vector_store.as_retriever(search_kwargs={"k": 5})
         compressor = LLMChainExtractor.from_llm(llm=model)
@@ -61,7 +59,6 @@ async def getAIResponse(data:APIInput):
         })
 
         response = json.loads(response).get("result")
-        print(response)
 
         chat_history.append(HumanMessage(content=query))
         chat_history.append(AIMessage(content=response))
