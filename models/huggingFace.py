@@ -8,5 +8,6 @@ llm = HuggingFaceEndpoint(
 # LLM Model
 model = ChatHuggingFace(llm=llm)
 
+
 # Embedding Model to Generate vectors 
 embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-MiniLM-L6-v2")
